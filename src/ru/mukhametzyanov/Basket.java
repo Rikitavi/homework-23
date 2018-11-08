@@ -1,6 +1,6 @@
 package ru.mukhametzyanov;
 
-import java.util.List;
+import java.util.LinkedList;
 
 public interface Basket {
 
@@ -14,8 +14,8 @@ public interface Basket {
 
     void printBasket();
 
-    List<String> getProducts();
-
-    int getProductQuantity(String product);
+//    LinkedList<String> getProducts();
+//
+//    int getProductQuantity(String product);
 
 }
