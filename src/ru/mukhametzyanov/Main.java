@@ -1,7 +1,5 @@
 package ru.mukhametzyanov;
 
-import java.util.LinkedList;
-
 public class Main {
 
     public static void main(String[] args) {
@@ -15,10 +13,13 @@ public class Main {
         basketImpl.printBasket();
         basketImpl.removeProduct("Telephone");
         basketImpl.printBasket();
+        basketImpl.getIndexListNumber(0);
         basketImpl.printBasket();
-        basketImpl.getIndexListNumber(1);
+        basketImpl.updateProductQuantity("TV",3);
+        basketImpl.printBasket();
         basketImpl.clear();
         basketImpl.printBasket();
+
 
 
 

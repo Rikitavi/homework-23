@@ -1,7 +1,5 @@
 package ru.mukhametzyanov;
 
-import java.util.LinkedList;
-
 public interface Basket {
 
     void addProduct(String product, int quantity);
@@ -13,9 +11,5 @@ public interface Basket {
     void clear();
 
     void printBasket();
-
-//    LinkedList<String> getProducts();
-//
-//    int getProductQuantity(String product);
 
 }

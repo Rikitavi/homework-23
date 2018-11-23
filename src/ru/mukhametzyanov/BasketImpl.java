@@ -3,19 +3,22 @@ package ru.mukhametzyanov;
 import java.util.LinkedList;
 
 public class BasketImpl implements Basket {
+
     private LinkedList<Product> productLinkedList = new LinkedList<>();
 
     /**
      * Получение выбранного продукта по индексу
+     *
      * @param index
      */
-    void getIndexListNumber(int index){
+    void getIndexListNumber(int index) {
         System.out.println(productLinkedList.get(index));
     }
 
     /**
      * Добавление продукта в корзину
-     * @param product имя продукта
+     *
+     * @param product  имя продукта
      * @param quantity кол-во
      */
     @Override
@@ -25,6 +28,7 @@ public class BasketImpl implements Basket {
 
     /**
      * Удаление выбранного продукта из корзины
+     *
      * @param product
      */
     @Override
@@ -34,11 +38,33 @@ public class BasketImpl implements Basket {
 
     /**
      * Увеличение кол-ва продукта
-     * @param product
+     *
+     * @param productName
      * @param quantity
      */
     @Override
-    public void updateProductQuantity(String product, int quantity) {
+    public void updateProductQuantity(String productName, int quantity) {
+        //Поиск продукта объекта по имени
+        Product product = getProductByName(productName);
+        //увеличение кол - ва найденного продукта
+        if (product != null) {
+            product.setQuantity(quantity);
+        }
+    }
+
+    /**
+     * Метод осуществляет поиск продукта по его имени
+     *
+     * @param productName
+     * @return
+     */
+    private Product getProductByName(String productName) {
+        for (Product product : productLinkedList) {
+            if (product.getProductName().equals(productName)) {
+                return product;
+            }
+        }
+        return null;
     }
 
     /**
@@ -54,20 +80,12 @@ public class BasketImpl implements Basket {
      */
     @Override
     public void printBasket() {
-        System.out.println(productLinkedList);
-        System.out.println();
-        if (productLinkedList.isEmpty()){
+        if (productLinkedList.isEmpty()) {
             System.out.println("Basket is empty");
+        } else {
+            System.out.println(productLinkedList);
+            System.out.println();
         }
-    }
 
-//    @Override
-//    public LinkedList<String> getProducts() {
-//        return null;
-//    }
-//
-//    @Override
-//    public int getProductQuantity(String product) {
-//        return 0;
-//    }
+    }
 }
